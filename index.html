@@ -1,32 +1,4 @@
-const colors = {
-  green: {
-    wrapperBackground: "#E6E1C3",
-    headerBackground: "#C1C72C",
-    headerColor: "black",
-    photoBorderColor: "black"
-  },
-  blue: {
-    wrapperBackground: "#5F64D3",
-    headerBackground: "#26175A",
-    headerColor: "white",
-    photoBorderColor: "#73448C"
-  },
-  pink: {
-    wrapperBackground: "#879CDF",
-    headerBackground: "#FF8374",
-    headerColor: "white",
-    photoBorderColor: "#FEE24C"
-  },
-  red: {
-    wrapperBackground: "#DE9967",
-    headerBackground: "#870603",
-    headerColor: "white",
-    photoBorderColor: "white"
-  }
-};
-
- generateHTML = (data, res, stars) => {
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
    <head>
       <meta charset="UTF-8" />
@@ -53,7 +25,7 @@ const colors = {
          height: 100%;
          }
          .wrapper {
-         background-color: ${colors[data.color].wrapperBackground};
+         background-color: #5F64D3;
          padding-top: 100px;
          }
          body {
@@ -95,8 +67,8 @@ const colors = {
          display: flex;
          justify-content: center;
          flex-wrap: wrap;
-         background-color: ${colors[data.color].headerBackground};
-         color: ${colors[data.color].headerColor};
+         background-color: #26175A;
+         color: white;
          padding: 10px;
          width: 95%;
          border-radius: 6px;
@@ -107,7 +79,7 @@ const colors = {
          border-radius: 50%;
          object-fit: cover;
          margin-top: -75px;
-         border: 6px solid ${colors[data.color].photoBorderColor};
+         border: 6px solid #73448C;
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
          }
          .photo-header h1, .photo-header h2 {
@@ -150,8 +122,8 @@ const colors = {
          .card {
            padding: 20px;
            border-radius: 6px;
-           background-color: ${colors[data.color].headerBackground};
-           color: ${colors[data.color].headerColor};
+           background-color: #26175A;
+           color: white;
            margin: 20px;
          }
          
@@ -175,21 +147,19 @@ const colors = {
       <body>
       <div class="jumbotron jumbotron-fluid">
       <div class="container">
-      <img src="${res.data.avatar_url}">
-      <h2>username: ${res.data.login}</h2>
-      <h2>Location:${res.data.location}</h2>
-      <a href="${res.data.url}">GitHub URL</a>
-      <a href="${res.data.blog}">Blog:</a>
-      <h2>Bio: ${res.data.bio}</h2>
-      <h2>Followers: ${res.data.followers}</h2>
-      <h2>Following: ${res.data.following}</h2>
-      <h2>Following: ${res.data.followers}</h2>
+      <img src="https://avatars1.githubusercontent.com/u/54160490?v=4">
+      <h2>username: alpinelife37</h2>
+      <h2>Location:Spokane, Wa</h2>
+      <a href="https://api.github.com/users/alpinelife37">GitHub URL</a>
+      <a href="https://www.linkedin.com/in/james-nelson-2624b4191">Blog:</a>
+      <h2>Bio: Currently completing University of Oregon's coding Boot camp along with completing Frontend Master's online classes. 
+</h2>
+      <h2>Followers: 13</h2>
+      <h2>Following: 15</h2>
+      <h2>Following: 13</h2>
 
       </div>
       </div>
       </body>
       </html>
-      `
-}
-
-module.exports = generateHTML;
+      
