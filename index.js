@@ -47,7 +47,7 @@ promptUser()
      // console.log(stars.data);
     })
    
-    // axios.get(queryUrlStars).then(function(stars) {
+    // axios.get(starsUrl).then(function(stars) {
       
 
       
