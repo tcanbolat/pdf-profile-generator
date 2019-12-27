@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
+    "electron-html-to": "",
     "inquirer": "^7.0.1"
   }
 }

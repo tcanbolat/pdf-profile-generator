@@ -183,7 +183,7 @@ const colors = {
       <h2>Bio: ${res.data.bio}</h2>
       <h2>Followers: ${res.data.followers}</h2>
       <h2>Following: ${res.data.following}</h2>
-      <h2>Following: ${res.data.followers}</h2>
+      <h2>GitHub stars: ${stars.data.length}</h2>
 
       </div>
       </div>
