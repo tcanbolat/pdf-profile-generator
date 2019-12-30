@@ -1,13 +1,13 @@
 const inquirer = require("inquirer");
 const electron = require("electron");
-const fs = require('fs');
+const fs = require('fs')
 const convertFactory = require('electron-html-to');
 const util = require("util");
 const axios = require("axios");
 const generateHTML = require("./generateHTML");
 
 const writeFileAsync = util.promisify(fs.writeFile);
-
+const readFileAsync = util.promisify(fs.readFile);
 promptUser = () => {
   return inquirer.prompt([
     {
@@ -40,23 +40,25 @@ promptUser()
     html = generateHTML(data, res, stars);
       writeFileAsync("index.html", html);
 
+      
     }).then(() => {
+
+      const htmlString = readFileAsync("./index.html");
+
       const conversion = convertFactory({
         converterPath: convertFactory.converters.PDF
       });
-       
-      conversion({ file:'./index.html'}, function(err, result) {
+
+      conversion({ html: htmlString }, function(err, result) {
         if (err) {
           return console.error(err);
         }
-       
         console.log(result.numberOfPages);
         console.log(result.logs);
-        result.stream.pipe(fs.createWriteStream('githubprofile.pdf'));
+        result.stream.pipe(fs.createWriteStream('gitHubProfile.pdf'));
       });
     })
 
-    
 
      });
 
@@ -68,12 +70,3 @@ promptUser()
 
 
   });
-
-
-
-
-
-
-// function init() {
-// }
-// init();
