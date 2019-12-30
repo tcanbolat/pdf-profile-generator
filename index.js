@@ -40,33 +40,31 @@ promptUser()
     html = generateHTML(data, res, stars);
       writeFileAsync("index.html", html);
 
-      
     }).then(() => {
 
-      const htmlString = readFileAsync("./index.html");
+      readFileAsync("index.html", "utf8").then(function(htmlString) {
 
-      const conversion = convertFactory({
-        converterPath: convertFactory.converters.PDF
-      });
+        const conversion = convertFactory({
+          converterPath: convertFactory.converters.PDF
+        });
+  
+        conversion({ html: htmlString }, function(err, result) {
+          if (err) {
+            return console.error(err);
+          }
+          console.log(result.numberOfPages);
+          console.log(result.logs);
+          result.stream.pipe(fs.createWriteStream('gitHubProfile.pdf'));
+          conversion.kill();
+        });
 
-      conversion({ html: htmlString }, function(err, result) {
-        if (err) {
-          return console.error(err);
-        }
-        console.log(result.numberOfPages);
-        console.log(result.logs);
-        result.stream.pipe(fs.createWriteStream('gitHubProfile.pdf'));
-      });
+      })
+
     })
-
 
      });
 
- 
-
   }).catch( (err) => {
     console.log(err);
-
-
 
   });
