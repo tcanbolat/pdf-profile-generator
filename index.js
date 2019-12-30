@@ -40,11 +40,11 @@ promptUser()
     html = generateHTML(data, res, stars);
       writeFileAsync("index.html", html);
 
-    }).then(() => {
+    }).then( () => {
 
-      readFileAsync("index.html", "utf8").then(function(htmlString) {
+      readFileAsync("index.html", "utf8").then( (htmlString) => {
 
-        const conversion = convertFactory({
+        const conversion = convertFactory( {
           converterPath: convertFactory.converters.PDF
         });
   
@@ -52,7 +52,7 @@ promptUser()
           if (err) {
             return console.error(err);
           }
-          console.log(result.numberOfPages);
+          console.log("PDF Pages: " + result.numberOfPages);
           console.log(result.logs);
           result.stream.pipe(fs.createWriteStream('gitHubProfile.pdf'));
           conversion.kill();
