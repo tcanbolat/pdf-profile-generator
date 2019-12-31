@@ -34,3 +34,14 @@ This application displays the GitHub users:
 
 **If any of the info listed above is blank on the users GitHub profile, then the result will be displayed as null on the pdf doc**
 
+______________________________________________________________________________________________________________________________________
+
+List of Node Modules used:
+
+1. inquirer - module used to ask questions and obtain data.
+
+2. Axios - module used for makinging API calls (used for Github api call)
+
+3. Electron version 1.8.8 &  Electron-html-to version 2.6.0 - module used to convert html document to a PDF documnet.
+
+4. prebuilt node.js modules
