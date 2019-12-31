@@ -52,8 +52,8 @@ promptUser()
           if (err) {
             return console.error(err);
           }
-          console.log("PDF Pages: " + result.numberOfPages);
           console.log(result.logs);
+          console.log("PDF Pages: " + result.numberOfPages);
           result.stream.pipe(fs.createWriteStream('gitHubProfile.pdf'));
           conversion.kill();
         });
@@ -63,8 +63,6 @@ promptUser()
     })
 
      });
-
   }).catch( (err) => {
     console.log(err);
-
   });

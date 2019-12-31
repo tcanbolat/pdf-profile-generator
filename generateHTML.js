@@ -173,42 +173,63 @@ const colors = {
          }
       </style>
       <body>
-
       <div class="wrapper">
+      
       <div class="photo-header">
           <img class="" src="${res.data.avatar_url}">
           <h1>Hi!</h1>
-          <h2>My name is ${res.data.name}</h2>
-          <h3>${res.data.company}</h3>
+          <h1>My name is ${res.data.name}</h1>
+          <h4>Currently @ ${res.data.company}</h4>
           <div class="links-nav">
-              <h6 class="nav-link"><i class="fas fa-map-marker-alt"></i>${res.data.location}</h6>
+              <h6 class="nav-link"><i class="fas fa-map-marker-alt"></i> ${res.data.location}</h6>
               <a class="nav-link" href="${res.data.html_url}"><i
-                      class="fab fa-github"></i>GitHub</a>
-              <a class="nav-link" href="${res.data.blog}"><i class="fas fa-rss"></i>Blog</a>
+                      class="fab fa-github"></i> GitHub</a>
+              <a class="nav-link" href="${res.data.blog}"><i class="fas fa-rss"></i> Blog</a>
           </div>
       </div>
+      
       <main>
+
           <div class="container">
-              <div class="row">
-                  <h2>${res.data.bio}</h2>
-                  <h4 class="card col">Followers: ${res.data.followers}</h4>
-                  <h4 class="card col">Following: ${res.data.following}</h4>
-                  <h4 class="card col">GitHub stars: ${stars.data.length}</h4>
-                  <h4 class="card col">public Repos: ${res.data.public_repos}</h4>
-              </div>
+                
+          <h1 class="col">${res.data.bio}</h1>
+          
+          <div class="card-deck">
+
+            <div class="card col col-sm-6">
+              <h2>Followers</h2>
+              <h3>${res.data.followers}</h3>
+            </div>
+
+            <div class="card col col-sm-6">
+              <h2>Following</h2>
+              <h3>${res.data.following}</h3>
+            </div>
 
           </div>
+
+          <br>
+
+          <div class="card-deck">
+
+            <div class="card col col-sm-6">
+              <h2>GitHub stars</h2>
+              <h3>${stars.data.length}</h3>
+            </div>
+
+            <div class="card col col-sm-6">
+              <h2>Public Repos</h2>
+              <h3>${res.data.public_repos}</h3>
+            </div>  
+
+          </div>
+          <br>
+
+      </div>
       </main>
-
-
-
-
   </div>
-
-
       </body>
       </html>
       `
 }
-
 module.exports = generateHTML;
